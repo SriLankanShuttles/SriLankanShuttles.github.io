@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fleet - Srilankan Shuttles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #ff8c00;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #9acd32;
+            padding: 0.8rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #7dbd2b;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .category-buttons button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: #007bff;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .category-buttons button:hover {
+            background: #0056b3;
+        }
+        .vehicles-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .vehicle-box {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            width: calc(33.33% - 20px);
+            max-width: 300px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            background: #fff;
+        }
+        .vehicle-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .vehicle-box p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .vehicle-box {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .vehicle-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        Sri Lankan Shuttles
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="ourservis.html">Our Services</a>
+        <a href="places.html">Places to Travel</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="container">
+        <h2>Our Fleet</h2>
+        <div class="category-buttons">
+            <button onclick="showVehicles('all')">All</button>
+            <button onclick="showVehicles('luxury')">Luxury</button>
+            <button onclick="showVehicles('premium')">Premium</button>
+            <button onclick="showVehicles('standard')">Standard</button>
+            <button onclick="showVehicles('economy')">Economy</button>
+            <button onclick="showVehicles('buses')">Buses</button>
+            <button onclick="showVehicles('vans')">Vans</button>
+            <button onclick="showVehicles('tuktuk')">Tuk Tuk</button>
+        </div>
+
+        <div class="vehicles-container" id="vehicles">
+            <!-- Vehicles will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        const vehiclesData = {
+            all: [
+                { name: "Benz Vito", img: "https://ymimg1.b8cdn.com/uploads/car_model/9282/pictures/9887708/2023_Mercedes_Vito_Exterior_01.jpg" },
+                { name: "Benz C Class", img: "https://th.bing.com/th/id/OIP.3EwXZo59JW-q8RKf1VCD5gHaE6?rs=1&pid=ImgDetMain" },
+                { name: "Outlander", img: "https://p.kindpng.com/picc/s/202-2021421_outlander-phev-mitsubishi-outlander-ruby-black-hd-png.png" },
+                { name: "Nissan X-Trail", img: "https://th.bing.com/th/id/OIP.RQU-Tz9IaKsqkeDSE1F8BgHaD0?rs=1&pid=ImgDetMain" },
+                { name: "Toyota Axio", img: "https://th.bing.com/th/id/OIP.e86aC39hA4R3xopI0qXKJgHaEC?w=900&h=491&rs=1&pid=ImgDetMain" },
+                { name: "Toyota Premio", img: "https://th.bing.com/th/id/OIP.Ck9VZvmjOpzndaQ_AVfKNQHaD4?rs=1&pid=ImgDetMain" },
+                { name: "Honda Vezel", img: "https://th.bing.com/th/id/OIP.jlR7h7BfdAci6NbeiRkjpAHaEa?rs=1&pid=ImgDetMain" },
+                { name: "Suzuki Wagon R", img: "https://i.pinimg.com/originals/c3/11/b2/c311b2f0a24ad75e7ed1ad772c1f531d.png" },
+                { name: "Toyota Coaster", img: "https://www.pngkit.com/png/full/363-3632156_coaster-70-series-toyota-coaster.png" },
+                { name: "Toyota Hiace", img: "https://www.pngkit.com/png/full/741-7417015_toyota-hiace.png" },
+                { name: "Sri Lanka Tuk Tuk", img: "https://pluspng.com/img-png/tuk-tuk-png-tuktuk-bajaj-re-bajaj-re-1052.png" }
+            ],
+            luxury: [
+                { name: "Benz Vito", img: "https://ymimg1.b8cdn.com/uploads/car_model/9282/pictures/9887708/2023_Mercedes_Vito_Exterior_01.jpg" },
+                { name: "Benz C Class", img: "https://th.bing.com/th/id/OIP.3EwXZo59JW-q8RKf1VCD5gHaE6?rs=1&pid=ImgDetMain" }
+            ],
+            premium: [
+                { name: "Outlander", img: "https://p.kindpng.com/picc/s/202-2021421_outlander-phev-mitsubishi-outlander-ruby-black-hd-png.png" },
+                { name: "Nissan X-Trail", img: "https://th.bing.com/th/id/OIP.RQU-Tz9IaKsqkeDSE1F8BgHaD0?rs=1&pid=ImgDetMain" }
+            ],
+            standard: [
+                { name: "Toyota Axio", img: "https://th.bing.com/th/id/OIP.e86aC39hA4R3xopI0qXKJgHaEC?w=900&h=491&rs=1&pid=ImgDetMain" },
+                { name: "Toyota Premio", img: "https://th.bing.com/th/id/OIP.Ck9VZvmjOpzndaQ_AVfKNQHaD4?rs=1&pid=ImgDetMain" }
+            ],
+            economy: [{ name: "Suzuki Wagon R", img: "https://i.pinimg.com/originals/c3/11/b2/c311b2f0a24ad75e7ed1ad772c1f531d.png" }],
+            buses: [{ name: "Toyota Coaster", img: "https://www.pngkit.com/png/full/363-3632156_coaster-70-series-toyota-coaster.png" }],
+            vans: [{ name: "Toyota Hiace", img: "https://www.pngkit.com/png/full/741-7417015_toyota-hiace.png" }],
+            tuktuk: [{ name: "Sri Lanka Tuk Tuk", img: "https://pluspng.com/img-png/tuk-tuk-png-tuktuk-bajaj-re-bajaj-re-1052.png" }]
+        };
+
+        function showVehicles(category) {
+            document.getElementById("vehicles").innerHTML = vehiclesData[category].map(v => `<div class="vehicle-box"><img src="${v.img}" alt="${v.name}"><p>${v.name}</p></div>`).join("");
+        }
+
+        showVehicles('all');
+    </script>
+
+</body>
+</html>
