@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Srilankan Shuttles</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: #ff8c00;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #9acd32;
+            padding: 0.8rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background: #7dbd2b;
+            border-radius: 5px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #ff8c00;
+            border-bottom: 3px solid #ff8c00;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .tabs button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+        }
+        .tabs button:hover {
+            background-color: #0056b3;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .info-box {
+            background-color: #fdf8ec;
+            border-left: 5px solid #ff8c00;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+    <script>
+        function showTab(tabName) {
+            document.getElementById('cars').style.display = 'none';
+            document.getElementById('tukTuk').style.display = 'none';
+            document.getElementById(tabName).style.display = 'block';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Srilankan Shuttles
+    </header>
+    
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="ourservices.html">Our Services</a>
+        <a href="fleet.html">Fleet</a>
+        <a href="places.html">Places to Travel</a>
+        <a href="package.html">Special Packages</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="tabs">
+            <button onclick="showTab('cars')">Cars</button>
+            <button onclick="showTab('tukTuk')">Tuk Tuk</button>
+        </div>
+
+        <div id="cars" class="tab-content">
+            <h2>Cars</h2>
+            <p>Information about car services can go here.</p>
+        </div>
+
+        <div id="tukTuk" class="tab-content">
+            <h2>Tuk Tuk</h2>
+            <div class="info-box">
+                <p>A Colombo City Tour offers a perfect mix of history, culture, and modern attractions. Key highlights include Gangaramaya Temple, Independence Memorial Hall, Pettah Market, and Galle Face Green. Visitors can explore colonial landmarks, vibrant streets, and scenic waterfronts while enjoying a ride in a traditional tuk-tuk or a private vehicle. The tour provides a great way to experience the essence of Sri Lanka’s bustling capital in a day.</p>
+            </div>
+            <div class="info-box">
+                <h3>Historical & Cultural Sites</h3>
+                <ul>
+                    <li>Gangaramaya Temple – A mix of Sri Lankan, Thai, Indian, and Chinese architecture.</li>
+                    <li>Seema Malaka Temple – A beautiful floating temple on Beira Lake.</li>
+                    <li>Independence Memorial Hall – A colonial-era monument with a peaceful park.</li>
+                    <li>Old Parliament Building – A grand colonial structure near Galle Face Green.</li>
+                    <li>Pettah Market & Jami Ul-Alfar Mosque (Red Mosque) – Bustling market streets with the famous red and white mosque.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Parks & Green Spaces</h3>
+                <ul>
+                    <li>Galle Face Green – A scenic waterfront park, great for a walk and street food.</li>
+                    <li>Viharamahadevi Park – Colombo’s largest park, with a giant Buddha statue.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Museums & Galleries</h3>
+                <ul>
+                    <li>National Museum of Colombo – The largest museum in Sri Lanka, showcasing history and artifacts.</li>
+                    <li>Dutch Hospital Shopping Precinct – A historic colonial-era hospital turned into a shopping and dining hub.</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <h3>Modern Attractions & Shopping</h3>
+                <ul>
+                    <li>Lotus Tower – Sri Lanka’s tallest structure with amazing city views.</li>
+                    <li>One Galle Face Mall – A luxury shopping mall with great dining options.</li>
+                    <li>Marino Mall & Colombo City Centre – Great places for shopping and entertainment.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        showTab('cars'); // Default tab
+    </script>
+</body>
+</html>
